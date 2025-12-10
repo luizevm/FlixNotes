@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlixNotes - Obras</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container mt-5">
+        <h2 class="mb-4 section-title">Obras Registradas</h2>
+
+        <table class="table table-dark table-striped table-hover rounded">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Gênero</th>
+                    <th>Plataforma</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for obra in obras %}
+                <tr>
+                    <td>{{ obra.nome }}</td>
+                    <td>{{ obra.get_tipo_display }}</td>
+                    <td>{{ obra.genero }}</td>
+                    <td>{{ obra.plataforma }}</td>
+                    <td>{{ obra.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
