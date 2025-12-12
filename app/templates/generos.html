@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -6,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlixNotes - Gêneros</title>
 
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -15,25 +15,34 @@
 
     {% include 'navbar.html' %}
 
-    <div class="container mt-5">
-        <h2 class="mb-4 section-title">Gêneros Cadastrados</h2>
+    <main class="container" style="padding-top:120px; max-width:800px;">
 
-        <table class="table table-dark table-striped table-hover rounded">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                </tr>
-            </thead>
+        <h2 class="section-title mb-4">Gêneros Cadastrados</h2>
 
-            <tbody>
-                {% for genero in generos %}
-                <tr>
-                    <td>{{ genero.nome }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+        <div class="table-responsive">
+            <table class="table table-dark table-striped table-hover rounded">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for genero in generos %}
+                    <tr>
+                        <td>{{ genero.nome }}</td>
+                    </tr>
+
+                    {% empty %}
+                    <tr>
+                        <td class="text-center">Nenhum gênero cadastrado.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </main>
 
 </body>
 </html>

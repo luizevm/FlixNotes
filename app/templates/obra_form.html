@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - FlixNotes</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <main class="container" style="padding-top:120px; max-width:700px;">
+
+        <h2 class="section-title">{{ title }}</h2>
+
+        <div class="netflix-card p-4 mt-4">
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form.non_field_errors }}
+
+                {% for field in form %}
+                <div class="form-group">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    <small class="text-danger">{{ field.errors }}</small>
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-netflix mt-3">
+                    Salvar
+                </button>
+
+                <a href="{% url 'obras' %}" class="btn btn-secondary mt-3 ml-2">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

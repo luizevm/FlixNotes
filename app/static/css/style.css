@@ -1,27 +1,26 @@
-/* ---------- RESET ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background-color: #141414;
+html, body {
+    background-color: #141414 !important;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ---------- NAVBAR ---------- */
-.navbar {
+.netflix-navbar {
     width: 100%;
     padding: 20px 40px;
+    background-color: #141414;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: transparent;
     position: fixed;
     top: 0;
     z-index: 999;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
@@ -35,24 +34,31 @@ body {
     color: white;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: #e5e5e5;
-    text-decoration: none;
+.nav-links a,
+.navbar .nav-link {
+    color: #e5e5e5 !important;
     font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
     transition: 0.3s;
+    padding-left: 10px;
 }
 
-.nav-links a:hover {
-    color: #ffffff;
+.nav-links a:hover,
+.navbar .nav-link:hover {
+    color: white !important;
 }
 
-/* ---------- HERO ---------- */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28 229, 229, 229, 1 %29)' stroke-width='3' stroke-linecap='round' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
 .hero {
     height: 90vh;
     background-image: url('https://i.imgur.com/2uKvXzH.jpeg');
@@ -80,17 +86,161 @@ body {
     color: #d3d3d3;
 }
 
-/* ---------- BUTTON (Netflix style) ---------- */
 .btn-netflix {
-    background-color: #e50914;
-    color: white;
+    background-color: #e50914 !important;
+    color: white !important;
     padding: 12px 24px;
-    text-decoration: none;
     border-radius: 4px;
     font-size: 20px;
+    text-decoration: none;
     transition: 0.3s;
+    border-color: #e50914 !important;
+    font-weight: bold;
 }
 
 .btn-netflix:hover {
-    background-color: #f40612;
+    background-color: #f40612 !important;
+}
+
+.btn-secondary {
+    background-color: #333 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.table-dark {
+    background-color: #1f1f1f !important;
+}
+
+.table-dark th,
+.table-dark td {
+    color: #fff !important;
+}
+
+.section-title {
+    color: #e5e5e5 !important;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container,
+.table,
+.card,
+.bg-light,
+.bg-white {
+    background-color: transparent !important;
+}
+
+.netflix-card {
+    background-color: #181818;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: #fff !important;
+    padding: 25px;
+}
+
+form .form-group {
+    margin-bottom: 18px;
+}
+
+form label {
+    font-weight: bold;
+    color: #e5e5e5 !important;
+    margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    background-color: #141414 !important;
+    color: #fff !important;
+    border: 1px solid #333 !important;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #e50914 !important;
+    outline: none;
+    box-shadow: 0 0 6px rgba(229, 9, 20, 0.5) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa !important;
+}
+
+.text-danger {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 120px auto 40px;
+    padding: 30px;
+    background-color: #181818;
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
+.form-container h1,
+.form-container h2,
+.form-container h3 {
+    color: #fff !important;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.form-container button,
+.form-container .btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.btn-danger {
+    background-color: #e50914 !important;
+    border: none !important;
+}
+
+.btn-danger:hover {
+    background-color: #f40612 !important;
+}
+
+.btn-secondary {
+    background-color: #333 !important;
+    border: none !important;
+}
+
+.confirm-box {
+    max-width: 500px;
+    margin: 150px auto;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.confirm-box h3 {
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 20px;
 }
